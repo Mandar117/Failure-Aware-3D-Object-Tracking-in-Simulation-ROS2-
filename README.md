@@ -50,6 +50,35 @@ Failure Detection & Recovery Logic
 
 ---
 
+## File Overview
+**1. tracking_world.sdf (Gazebo World)**
+
+Defines the 3D simulation environment
+Creates 3 colored objects: red cube, green sphere, blue cylinder
+Adds RGB-D camera sensor mounted at height looking down
+Configures camera to publish RGB + depth images to ROS2 topics
+
+**2. tracking_sim.launch.py (Launch File)**
+
+Launches Gazebo with our world file
+Launches RViz for visualization
+Automates starting both tools with one command
+
+**3. setup.py (Package Configuration)**
+
+Tells ROS2 where to install our world files, launch files, configs
+Without this, ROS2 won't find our worlds/launch files when we run them
+Updated to include the new directories we created
+
+**4. tracking.rviz (RViz Config)**
+
+Pre-configures RViz display settings
+Shows RGB camera feed and depth image side-by-side
+Sets correct reference frame (camera_link)
+Saves you from manually configuring RViz every time
+
+---
+
 ## ROS2 Nodes (Planned)
 
 - `rgbd_projection_node`
@@ -81,20 +110,6 @@ Each tracked object is assigned one of the following states:
 - Track stability under noise
 - Failure frequency per scenario
 - Recovery success rate
-
----
-
-## Current Status
-
-- [x] Project scaffold created
-- [ ] Simulation setup
-- [ ] RGB-D stream integration
-- [ ] 2D detection
-- [ ] 3D projection
-- [ ] Multi-object tracking
-- [ ] Failure detection
-- [ ] Recovery logic
-- [ ] Profiling and analysis
 
 ---
 
