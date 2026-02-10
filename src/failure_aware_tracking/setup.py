@@ -25,6 +25,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'object_mover = failure_aware_tracking.object_mover:main',
         ],
     },
 )
