@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import os
 from glob import glob
 
@@ -7,7 +7,7 @@ package_name = 'failure_aware_tracking'
 setup(
     name=package_name,
     version='0.0.1',
-    packages=[package_name],
+    packages=find_packages(exclude=['test']),
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -18,14 +18,14 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='sagar',
+    maintainer='Mandar',
     maintainer_email='your_email@example.com',
     description='Failure-aware multi-object 3D tracking',
     license='MIT',
-    tests_require=['pytest'],
     entry_points={
         'console_scripts': [
             'object_mover = failure_aware_tracking.object_mover:main',
+            'color_detector = failure_aware_tracking.color_detector:main',
         ],
     },
 )
